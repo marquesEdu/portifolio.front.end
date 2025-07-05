@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo da Silva Marques - Landing Page</title> <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Menu de Navegação */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #007bff;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            padding: 2rem 1rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        /* Seção Habilidades */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .skills-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-grid li {
+            background-color: #e9ecef;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .skills-grid li:hover {
+            background-color: #dee2e6;
+        }
+
+        /* Seção Projetos */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #0056b3;
+        }
+
+        /* Informações Extras (Aside) */
+        aside {
+            background-color: #e9f7ff;
+            border-left: 5px solid #007bff;
+            padding: 1.5rem;
+            margin: 3rem 0;
+            border-radius: 8px;
+        }
+
+        aside h2 {
+            color: #007bff;
+            text-align: left;
+            margin-top: 0;
+        }
+
+        aside h3 {
+            color: #333;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            main {
+                margin: 1rem auto;
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr; /* Uma coluna em telas menores */
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr; /* Uma coluna em telas menores */
+            }
+
+            .project-card {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 0.8rem;
+            }
+
+            section {
+                margin-bottom: 2rem;
+                padding-bottom: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://via.placeholder.com/150" alt="Foto de Eduardo da Silva Marques" class="profile-pic">
+            <div>
+                <h1>Eduardo da Silva Marques</h1>
+                <p>"Sempre em desenvolvimento"</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sobre-mim">Sobre Mim</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#formacao">Formação</a></li> <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="sobre-mim">
+            <h2>Sobre Mim</h2>
+            <p>Sou apaixonado por tecnologia e atuo profissionalmente na área de desenvolvimento, atualmente como **Analista de Sistemas**. Estou concluindo minha graduação em **Análise e Desenvolvimento de Sistemas**, com foco em estruturas de dados, desenvolvimento e análise de dados.</p>
+            <p>Acredito que novos desafios são essenciais para o crescimento pessoal e profissional — é neles que encontramos nossas maiores oportunidades de evolução. Estou sempre em busca de aprender, criar e transformar ideias em soluções eficientes.</p>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades</h2>
+            <div class="skills-grid">
+                <ul>
+                    <li>Inglês</li>
+                    <li>Espanhol</li>
+                    <li>JavaScript</li>
+                    <li>Banco de Dados</li>
+                </ul>
+                <ul>
+                    <li>Desenvolvedor Android</li>
+                    <li>AutoCAD 2D</li>
+                    </ul>
+            </div>
+        </section>
+
+        <section id="formacao">
+            <h2>Formação</h2>
+            <div class="education-item">
+                <h3>Bacharelado em Ciência da Computação</h3>
+                <p><strong>Instituição:</strong> Universidade Federal de Pelotas</p>
+                <p>Status: Cursando</p> </div>
+            <div class="education-item">
+                <h3>Análise e Desenvolvimento de Sistemas</h3>
+                <p><strong>Instituição:</strong> Unicesumar</p>
+                <p>Status: Concluindo</p>
+            </div>
+        </section>
+
+
+        <section id="projetos">
+            <h2>Meus Projetos</h2>
+            <div class="projects-container">
+                <article class="project-card">
+                    <h3>Projeto 1: Criação de um Jogo em Scratch</h3>
+                    <img src="https://via.placeholder.com/400x250?text=Jogo+Scratch" alt="Imagem do Jogo em Scratch">
+                    <p>Desenvolvimento de um jogo interativo utilizando a plataforma Scratch, focado em lógica de programação e criação de elementos visuais e comportamentais. Este projeto me ajudou a entender os fundamentos do desenvolvimento de jogos e a interação com o usuário.</p>
+                    <a href="#" target="_blank" class="project-link">Ver Projeto (link fictício)</a>
+                </article>
+                <article class="project-card">
+                    <h3>Projeto 2: Aplicativo para Rejeição de Chamadas Android</h3>
+                    <img src="https://via.placeholder.com/400x250?text=App+Android" alt="Imagem do Aplicativo Android">
+                    <p>Criação de um aplicativo nativo para Android que permite ao usuário gerenciar e rejeitar chamadas de forma personalizada. O projeto envolveu conhecimentos em desenvolvimento mobile, manipulação de permissões do sistema e interface de usuário.</p>
+                    <a href="#" target="_blank" class="project-link">Ver Projeto (link fictício)</a>
+                </article>
+            </div>
+        </section>
+
+        <aside>
+            <h2>Informações Extras</h2>
+            <p>Fora do trabalho, adoro aprender sobre novas tecnologias, explorar ferramentas de análise de dados e acompanhar as tendências do mercado de desenvolvimento.</p>
+            <h3>Links Úteis:</h3>
+            <ul>
+                <li><a href="https://github.com/seu-usuario" target="_blank">GitHub</a></li>
+                <li><a href="https://linkedin.com/in/seu-usuario" target="_blank">LinkedIn</a></li>
+                <li><a href="https://instagram.com/seu-usuario" target="_blank">Instagram</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer id="contato">
+        <p>Entre em contato: <a href="mailto:eduardo.marques@example.com">eduardo.marques@example.com</a></p>
+        <p>&copy; 2025 Eduardo da Silva Marques. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
